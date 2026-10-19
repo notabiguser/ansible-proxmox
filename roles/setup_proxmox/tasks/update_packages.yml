@@ -1,7 +1,8 @@
+---
 - name: Update APT cache and upgrade all packages
   ansible.builtin.apt:
     update_cache: true
-    cache_valid_time: 3600 # seconds
+    cache_valid_time: 3600  # seconds
     upgrade: dist
 
 - name: Remove unused packages

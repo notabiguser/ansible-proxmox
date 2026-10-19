@@ -1,3 +1,4 @@
+---
 - name: Repositories
   ansible.builtin.import_tasks: setup_repositories.yml
 

@@ -1,3 +1,4 @@
+---
 - name: Set sshd options
   ansible.builtin.lineinfile:
     path: /etc/ssh/sshd_config
@@ -6,15 +7,20 @@
     validate: "/usr/sbin/sshd -t -f %s"
     backup: true
   loop:
-    - { key: "PermitRootLogin", value: "prohibit-password" }
-    - { key: "PasswordAuthentication", value: "no" }
-    - { key: "PubkeyAuthentication", value: "yes" }
-    - { key: "MaxAuthTries", value: "3" }
-    - { key: "X11Forwarding", value: "no" }
+    - key: PermitRootLogin
+      value: prohibit-password
+    - key: PasswordAuthentication
+      value: "no"
+    - key: PubkeyAuthentication
+      value: "yes"
+    - key: MaxAuthTries
+      value: "3"
+    - key: X11Forwarding
+      value: "no"
   register: setup_proxmox_sshd_result
 
 - name: Reload ssh
   ansible.builtin.service:
     name: ssh
     state: reloaded
-  when: setup_proxmox_sshd_result.changed # noqa: no-handler
+  when: setup_proxmox_sshd_result.changed  # noqa: no-handler

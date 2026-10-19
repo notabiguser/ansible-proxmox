@@ -1,3 +1,4 @@
+---
 - name: Create Proxmox user
   ansible.builtin.user:
     name: proxmox

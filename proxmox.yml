@@ -1,3 +1,4 @@
+---
 - name: Configure Proxmox
   hosts: proxmox
   remote_user: root
