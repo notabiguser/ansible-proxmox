@@ -1,0 +1,6 @@
+- name: Configure Proxmox
+  hosts: proxmox
+  remote_user: root
+  become: false
+  roles:
+    - setup_proxmox

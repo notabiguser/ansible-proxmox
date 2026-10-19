@@ -1,0 +1,14 @@
+- name: Repositories
+  ansible.builtin.import_tasks: setup_repositories.yml
+
+- name: Packages and updates
+  ansible.builtin.import_tasks: update_packages.yml
+
+- name: Install packages
+  ansible.builtin.import_tasks: install_packages.yml
+
+- name: Users
+  ansible.builtin.import_tasks: add_proxmox_user.yml
+
+- name: SSH hardening
+  ansible.builtin.import_tasks: harden_ssh.yml

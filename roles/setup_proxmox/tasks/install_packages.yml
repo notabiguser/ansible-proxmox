@@ -1,0 +1,11 @@
+- name: Install packages
+  ansible.builtin.apt:
+    name:
+      - sudo
+      - htop
+      - iftop
+      - iotop
+      - vim
+    state: present
+    update_cache: true
+    cache_valid_time: 3600

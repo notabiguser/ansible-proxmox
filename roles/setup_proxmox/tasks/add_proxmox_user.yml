@@ -1,0 +1,23 @@
+- name: Create Proxmox user
+  ansible.builtin.user:
+    name: proxmox
+    shell: /bin/bash
+    groups:
+      - sudo
+      - systemd-journal
+      - adm
+    append: true
+    create_home: true
+
+- name: Add SSH key
+  ansible.posix.authorized_key:
+    user: proxmox
+    key: "{{ ssh_pubkey }}"
+    state: present
+
+- name: Allow sudo without password
+  ansible.builtin.copy:
+    dest: "/etc/sudoers.d/proxmox"
+    content: "proxmox ALL=(ALL) NOPASSWD:ALL\n"
+    mode: "0440"
+    validate: /usr/sbin/visudo -cf %s
