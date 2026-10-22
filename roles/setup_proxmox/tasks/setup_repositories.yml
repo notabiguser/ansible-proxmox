@@ -16,8 +16,3 @@
     components: pve-no-subscription
     signed_by: /usr/share/keyrings/proxmox-archive-keyring.gpg
     state: present
-
-- name: Upgrade all packages
-  ansible.builtin.apt:
-    update_cache: true
-    upgrade: dist
