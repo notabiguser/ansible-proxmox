@@ -1,6 +1,10 @@
-# ansible-proxmox
+<h1 align="center">
+ansible-proxmox
+</h1>
 
+<p align="center">
 Ansible playbook for the first setup of Proxmox
+<br>
 
 ### Usage
 
